@@ -1,0 +1,22 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+---
+description: Ensure newly added dependencies are checked for vulnerabilities and project stays clean
+globs: '**/package.json, **/package-lock.json, **/yarn.lock, **/pnpm-lock.yaml, **/requirements.txt, **/Pipfile, **/Pipfile.lock, **/pyproject.toml, **/poetry.lock, **/go.mod, **/go.sum, **/Cargo.toml, **/Cargo.lock, **/pom.xml, **/build.gradle, **/build.gradle.kts, **/gradle.lockfile, **/composer.json, **/composer.lock'
+alwaysApply: true
+---
+
+# Dependency Vulnerability Safety Rule
+
+Whenever you add or modify a dependency in any of the files above:
+
+- Run `endor-cli-tools` using the `check_dependency_for_vulnerabilities` tool.
+- Provide the **language**, **dependency name**, and **version**.
+- If the tool identifies a vulnerability:
+  - Upgrade to the suggested safe version, or
+  - Replace the dependency with a non-vulnerable alternative.
+
+This rule ensures that all dependency changes are evaluated for risk at the time of introduction, and that the project remains clean and secure after each coding session.
