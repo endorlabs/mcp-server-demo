@@ -1,4 +1,4 @@
-# 🧬 MCP Vibe Template
+# 🧬 Endor Labs MCP Vibe Template
 
 This repo is a minimal setup to kickstart secure, AI-assisted development using Cursor, GitHub, and Endor Labs MCP.
 
