@@ -20,7 +20,9 @@ Install endorctl
 
 Authenticate it to your Endor Labs tenant:
 
+```bash
 endorctl init --auth-mode=<insert_your_auth_mode_here>
+```
 
 Full docs here 👉 [Endor Labs IDE Integration Guide](https://docs.endorlabs.com/deployment/ide/mcp/)
 
@@ -28,8 +30,10 @@ Full docs here 👉 [Endor Labs IDE Integration Guide](https://docs.endorlabs.co
 
 1. Clone this repo
 
+```bash
 git clone https://github.com/endorlabs/mcp-server-demo.git
 cd mcp-server-demo
+```
 
 2. Open it in Cursor
 
