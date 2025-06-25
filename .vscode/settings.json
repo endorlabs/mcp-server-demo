@@ -1,7 +1,7 @@
 {
-  "github.copilot.enable": {
-    "*": true
-  },
-  "chat.mcp.discovery.enabled": true,
-  "chat.mcp.enabled": true
+	"github.copilot.enable": {
+		"*": true
+	},
+	"chat.mcp.discovery.enabled": true,
+	"chat.mcp.enabled": true
 }

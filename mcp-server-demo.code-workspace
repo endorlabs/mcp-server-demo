@@ -1,0 +1,14 @@
+{
+    "folders": [
+        {
+            "path": "."
+        }
+    ],
+    "settings": {
+        "github.copilot.enable": {
+            "*": true
+        },
+        "chat.mcp.discovery.enabled": true,
+        "chat.mcp.enabled": true
+    }
+}

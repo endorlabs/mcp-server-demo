@@ -1,0 +1,3 @@
+# Ignore Semgrep logs and version files
+semgrep.log
+semgrep.version

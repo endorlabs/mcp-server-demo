@@ -4,15 +4,24 @@ applyTo: '**/package.json, **/package-lock.json, **/yarn.lock, **/pnpm-lock.yaml
 ---
 # Software Composition Analysis (SCA) Rule (Endor Labs via MCP)
 This project uses [Endor Labs](https://docs.endorlabs.com/) for automated dependency (SCA) scanning, integrated through the MCP server as configured in `.vscode/mcp.json`.
+
 ## Workflow
-Whenever you add or modify a dependency in any of the files above:
+Every time a manifest or lockfile listed above is modified, and before the end of an agent session:
 - Run `endor-cli-tools` using the `check_dependency_for_vulnerabilities` tool via the MCP server.
-- Provide the **language**, **dependency name**, and **version** as required.
-- If a vulnerability is identified:
+- Provide the **language**, **dependency name**, and **version** always when making this tool call. Do not forget to provide a version.
+- If a vulnerability or error is identified:
   - Upgrade to the suggested safe version, or
   - Replace the dependency with a non-vulnerable alternative.
+  - The AI agent must attempt to automatically correct all detected errors and vulnerabilities before session completion.
 - Re-run the check using `endor-cli-tools` to confirm the issue is resolved.
+- If an error occurs in any MCP server tool call (such as missing required parameters like version, invalid arguments, or tool invocation failures):
+  - The AI agent must review the error, determine the cause, and automatically correct the tool call or input parameters.
+  - Re-attempt the tool call with the corrected parameters.
+  - Continue this process until the tool call succeeds or it is determined that remediation is not possible, in which case the issue and reason must be reported.
+- Save scan results and remediation steps in a security log or as comments for audit purposes.
+
 ## Notes
 - All scans must be performed using the MCP server integration (`endor-cli-tools`) as configured in `.vscode/mcp.json`. Do not invoke `endorctl` directly.
 - For troubleshooting, ensure the MCP server is running and `endorctl` is installed and accessible in your environment.
-This rule ensures that all dependency changes are evaluated for risk at the time of introduction, and that the project remains clean and secure after each coding session.
+
+This rule ensures that all dependency changes are evaluated for risk at the time of introduction, and that the project remains clean and secure after each coding session. The scan may be performed at the end of an agent session, provided all modifications are checked and remediated before session completion.
