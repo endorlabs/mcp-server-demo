@@ -46,7 +46,7 @@ No additional configuration needed — the MCP server and policy files are alrea
 In Cursor, paste this into the agent:
 
 ```yaml
-“Create a TODO list app with a React frontend and Python backend.The app must support creating Todo items with an expiration date and have the ability to delete items from the Todo list.”
+“Create a TODO list app with a React frontend and Python backend. The app must support creating Todo items with an expiration date and have the ability to delete items from the Todo list. Please do not create a readme and just do the code.”
 ```
 
 MCP will:
