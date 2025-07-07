@@ -9,7 +9,9 @@ This project uses Endor Labs for automated dependency (SCA) scanning, integrated
 
 ## Workflow
 
-Every time a manifest or lockfile listed above is created or modified in any way immediantly do the following prior to performing your next task. Do not code anything else before checking this to save time.
+Every time a manifest or lockfile listed above is created or modified in any way immediantly do the following prior to performing your next task. 
+
+**Important**: Do not procceed after creating or modifying a manifest file without running this first. Do not write any other code or continue with your existing prompt. This is top priority whenever a manifest file is created or updated.
 
 - Run `endor-cli-tools` using the `check_dependency_for_vulnerabilities` tool via the MCP server.
 - Provide the **language**, **dependency name**, and **version** always when making this tool call. Do not forget to provide a version.
