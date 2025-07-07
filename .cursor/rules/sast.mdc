@@ -32,6 +32,6 @@ Whenever a file is modified in the repository, and before the end of an agent se
 - All scans must be performed using the MCP server integration (`endor-cli-tools`) as configured in `.cursor/mcp.json`. Do not invoke `endorctl` directly.
 - For troubleshooting, ensure the MCP server is running and `endorctl` is installed and accessible in your environment.
 - Do not invoke semgrep directly.
-- **Important**: This scan must use the path of the directory from which the changed files are in. Do not attempt to set the path directly to a file as it must be a directory.
+- **Important**: This scan must use the path of the directory from which the changed files are in. Do not attempt to set the path directly to a file as it must be a directory. Use absolute paths like /Users/username/mcp-server-demo/backend rather than relative paths like 'backend'
 
 This rule ensures all code changes are automatically reviewed and remediated for common security vulnerabilities and errors using `endor-cli-tools` and the MCP server, with Semgrep as the underlying engine.
