@@ -13,13 +13,11 @@
         "name": "jq",
         "description": "JSON processor for parsing hook output",
         "install": "brew install jq (macOS) or apt-get install jq (Linux)"
-      }
-    ],
-    "optional": [
+      },
       {
         "name": "endorctl",
-        "description": "Endor Labs CLI for malware detection",
-        "install": "npm install -g endorctl"
+        "description": "Endor Labs CLI for malware detection - ESSENTIAL for hook functionality",
+        "install": "Follow Endor Labs installation instructions at https://docs.endorlabs.com/"
       }
     ]
   },
