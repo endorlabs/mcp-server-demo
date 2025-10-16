@@ -1,0 +1,18 @@
+[1;33mScanning 6 dependencies for malware using Endor Labs...[0m
+[0;31m🚨 MALWARE DETECTED: npm://nyc-config@0.9.0[0m
+[0;31m  • Package: nyc-config@0.9.0[0m
+[0;31m  • Status: MALWARE[0m
+[0;31m  • Summary: Malicious code in nyc-config (npm)[0m
+[0;31m  • Reasons:[0m
+[0;31m    - The package has an install script, which may indicate an attempt to execute arbitrary code, exfiltrate data, or communicate with a command and control server.[0m
+[0;31m    - The package contains code that exfiltrates sensitive data, which may indicate an attempt to steal user information, credentials, or other sensitive data.[0m
+[0;31m    - The package has an install script and shady links, which may indicate an attempt to execute arbitrary code, exfiltrate data, or communicate with a command and control server.[0m
+[0;31m🚨 MALWARE DETECTED: npm://event-stream@3.3.6[0m
+[0;31m  • Package: event-stream@3.3.6[0m
+[0;31m  • Status: MALWARE[0m
+[0;31m  • Summary: Malicious code in event-stream (npm)[0m
+[0;31m🚨 MALWARE DETECTED: npm://flatmap-stream@0.1.1[0m
+[0;31m  • Package: flatmap-stream@0.1.1[0m
+[0;31m  • Status: MALWARE[0m
+[0;31m  • Summary: Malicious code in flatmap-stream (npm)[0m
+[0;31m❌ BLOCKING: Malware detected in dependencies. Edit operation cancelled.[0m
