@@ -1,0 +1,55 @@
+{
+  "version": 1,
+  "hooks": {
+    "afterFileEdit": [
+      {
+        "command": "./malware-audit-hook.sh"
+      }
+    ]
+  },
+  "dependencies": {
+    "required": [
+      {
+        "name": "jq",
+        "description": "JSON processor for parsing hook output",
+        "install": "brew install jq (macOS) or apt-get install jq (Linux)"
+      }
+    ],
+    "optional": [
+      {
+        "name": "endorctl",
+        "description": "Endor Labs CLI for malware detection",
+        "install": "npm install -g endorctl"
+      }
+    ]
+  },
+  "examples": {
+    "dependencyDetector": {
+      "description": "Example dependency detector script that would feed into the hook",
+      "script": "#!/bin/bash\n# Example dependency detector\n# This would be implemented to detect changes in manifest files\n# and emit the JSON formats expected by the malware audit hook\n\nFILE_PATH=\"$1\"\n\n# Detect if file is a dependency manifest\nif [[ \"$FILE_PATH\" =~ \\.(json|lock|yaml|toml|txt|mod|sum)$ ]]; then\n  # Parse dependencies and emit JSON\n  echo '{\"kind\":\"deps_changed\",\"filePath\":\"'$FILE_PATH'\",\"changed\":[\"npm://example@1.0.0\"]}'\n  echo '{\"kind\":\"endorctl\",\"status\":0,\"verdict\":\"clean\",\"hits\":[]}'\nelse\n  echo '{\"kind\":\"skip\",\"filePath\":\"'$FILE_PATH'\",\"reason\":\"Not a dependency file\"}'\nfi"
+    },
+    "integration": {
+      "description": "How to integrate with Cursor's afterFileEdit hook system",
+      "steps": [
+        "1. Place malware-audit-hook.sh in your project root",
+        "2. Make it executable: chmod +x malware-audit-hook.sh",
+        "3. Install jq: brew install jq (or equivalent)",
+        "4. Configure your dependency detector to emit the expected JSON formats",
+        "5. Set up Cursor to call: dependency-detector --file {filePath} | ./malware-audit-hook.sh",
+        "6. Test with the provided test suite: ./test-hook.sh"
+      ]
+    }
+  },
+  "security": {
+    "policy": {
+      "blockOnMalware": true,
+      "failOpenOnError": true,
+      "timeoutSeconds": 30
+    },
+    "malwareDetection": {
+      "service": "Endor Labs",
+      "verdicts": ["clean", "malware"],
+      "hitStatuses": ["MALWARE", "CLEAN", "UNKNOWN"]
+    }
+  }
+}
