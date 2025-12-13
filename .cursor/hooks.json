@@ -1,0 +1,35 @@
+{
+    "version": 1,
+    "hooks": {
+        "beforeShellExecution": [
+            {
+                 "command": "./hooks/shell-malware-audit-hook.sh"
+            }
+        ],
+        "beforeMCPExecution": [
+            {
+                "command": "./hooks/audit.sh"
+            }
+        ],
+        "beforeReadFile": [
+            {
+                "command": "./hooks/audit.sh"
+            }
+        ],
+        "afterFileEdit": [
+            {
+                "command": "./hooks/malware-audit-hook.sh"
+            }
+        ],
+        "beforeSubmitPrompt": [
+            {
+                "command": "./hooks/audit.sh"
+            }
+        ],
+        "stop": [
+            {
+                "command": "./hooks/audit-end.sh"
+            }
+        ]
+    }
+}
